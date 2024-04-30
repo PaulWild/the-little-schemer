@@ -11,12 +11,6 @@
       (+ 1
          (length (cdr lst)))))
 
-(define (list-of-atoms? l)
-  (cond
-    [(null? l) #t]
-    [(atom? (car l) (list-of-atoms? (cdr l)))]
-    [else #f]))
-
 (check-true (atom? 'atom))
 
 (check-true (atom? 'turkey))
@@ -62,5 +56,3 @@
 (check-exn exn:fail? (lambda () (car '())))
 
 ; law of car
-
-(check-true (list-of-atoms? '()))
